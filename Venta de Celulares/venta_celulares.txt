@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- SQL XML created by WWW SQL Designer, https://github.com/ondras/wwwsqldesigner/ -->
+<!-- Active URL: http://ondras.zarovi.cz/sql/demo/?keyword=default -->
+<sql>
+<datatypes db="mysql">
+	<group color="rgb(238,238,170)" label="Numeric">
+		<type label="Integer" quote="" sql="INTEGER" length="0"/>
+	 	<type label="TINYINT" quote="" sql="TINYINT" length="0"/>
+	 	<type label="SMALLINT" quote="" sql="SMALLINT" length="0"/>
+	 	<type label="MEDIUMINT" quote="" sql="MEDIUMINT" length="0"/>
+	 	<type label="INT" quote="" sql="INT" length="0"/>
+		<type label="BIGINT" quote="" sql="BIGINT" length="0"/>
+		<type label="Decimal" quote="" sql="DECIMAL" length="1" re="DEC"/>
+		<type label="Single precision" quote="" sql="FLOAT" length="0"/>
+		<type label="Double precision" quote="" sql="DOUBLE" length="0" re="DOUBLE"/>
+	</group>
+
+	<group color="rgb(255,200,200)" label="Character">
+		<type label="Char" quote="'" sql="CHAR" length="1"/>
+		<type label="Varchar" quote="'" sql="VARCHAR" length="1"/>
+		<type label="Text" quote="'" sql="MEDIUMTEXT" length="0" re="TEXT"/>
+		<type label="Binary" quote="'" sql="BINARY" length="1"/>
+		<type label="Varbinary" quote="'" sql="VARBINARY" length="1"/>
+		<type label="BLOB" quote="'" sql="BLOB" length="0" re="BLOB"/>
+	</group>
+
+	<group color="rgb(200,255,200)" label="Date &amp; Time">
+		<type label="Date" quote="'" sql="DATE" length="0"/>
+		<type label="Time" quote="'" sql="TIME" length="0"/>
+		<type label="Datetime" quote="'" sql="DATETIME" length="0"/>
+		<type label="Year" quote="" sql="YEAR" length="0"/>
+		<type label="Timestamp" quote="'" sql="TIMESTAMP" length="0"/>
+	</group>
+	
+	<group color="rgb(200,200,255)" label="Miscellaneous">
+		<type label="ENUM" quote="" sql="ENUM" length="1"/>
+		<type label="SET" quote="" sql="SET" length="1"/>
+		<type label="Bit" quote="" sql="bit" length="0"/>
+	</group>
+</datatypes><table x="0" y="245" name="empresa">
+<row name="RUC" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nombre" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="telefono" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="ciudad" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="distrito" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="calle" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>RUC</part>
+</key>
+</table>
+<table x="154" y="164" name="local_venta_celulares">
+<row name="numero_local" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="capacidad" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="RUC_empresa_cel" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="empresa _celulares" row="RUC" />
+</row>
+<row name="DNI_administrador" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="administrador" row="DNI" />
+</row>
+<row name="DNI_propietario" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="propietario" row="DNI" />
+</row>
+<key type="PRIMARY" name="">
+<part>numero_local</part>
+</key>
+</table>
+<table x="143" y="862" name="distribuidora">
+<row name="RUC" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="empresa" row="RUC" />
+</row>
+<row name="cant_trabajadores" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>RUC</part>
+</key>
+</table>
+<table x="130" y="26" name="empresa _celulares">
+<row name="RUC" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="empresa" row="RUC" />
+</row>
+<key type="PRIMARY" name="">
+<part>RUC</part>
+</key>
+</table>
+<table x="647" y="798" name="proveedor">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="persona" row="DNI" />
+</row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="630" y="269" name="administrador">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="persona" row="DNI" />
+</row>
+<row name="años_trabajo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="sueldo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="673" y="14" name="persona">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nombre" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="apellido" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="direccion" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="sexo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="649" y="177" name="propietario">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="persona" row="DNI" />
+</row>
+<row name="fecha_propiedad" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="856" y="25" name="empleado">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="persona" row="DNI" />
+</row>
+<row name="sueldo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="años_trabajo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="turno" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="408" y="781" name="abastecer">
+<row name="numero_local_r" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="local_venta_celulares" row="numero_local" />
+</row>
+<row name="DNI_proveedor" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="proveedor" row="DNI" />
+</row>
+</table>
+<table x="404" y="878" name="trabaja">
+<row name="fecha_trabajo" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="DNI_proveedor" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="proveedor" row="DNI" />
+</row>
+<row name="RUC_distribuidora" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="distribuidora" row="RUC" />
+</row>
+</table>
+<table x="411" y="74" name="trabajan">
+<row name="DNI_empleado" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="empleado" row="DNI" />
+</row>
+<row name="numero_local_ven_cel" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="local_venta_celulares" row="numero_local" />
+</row>
+</table>
+<table x="681" y="881" name="conductor">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="numero_vehiculo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="vehiculo" row="numero" />
+</row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="425" y="999" name="vehiculo">
+<row name="numero" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="capacidad" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="marca" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="RUC_empresa" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="distribuidora" row="RUC" />
+</row>
+<key type="PRIMARY" name="">
+<part>numero</part>
+</key>
+</table>
+<table x="963" y="168" name="factura">
+<row name="codigo" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="RUC_empresa" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="DNI_cliente" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="cliente" row="DNI" />
+</row>
+<row name="Nombre_cliente" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="Nombre_tienda" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="importe" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="IGV" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="fecha_compra" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="telefono_tienda" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="DNI_empleado" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="empleado" row="DNI" />
+</row>
+<row name="nombre_empleado" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>codigo</part>
+</key>
+</table>
+<table x="1172" y="27" name="atencion_cliente">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="empleado" row="DNI" />
+</row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="1177" y="110" name="servicio_tecnico">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="empleado" row="DNI" />
+</row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="1178" y="179" name="repartidor_domicilio">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="empleado" row="DNI" />
+</row>
+<row name="numero_vehiculo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="vehiculo_repartidor_celulares" row="numero" />
+</row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="1507" y="185" name="vehiculo_repartidor_celulares">
+<row name="numero" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="marca" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="capacidad" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="destino" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>numero</part>
+</key>
+</table>
+<table x="830" y="499" name="cliente">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="persona" row="DNI" />
+</row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="986" y="440" name="cliente_frecuente">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="cliente" row="DNI" />
+</row>
+<row name="descuento" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="987" y="552" name="cliente_ocasional">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="cliente" row="DNI" />
+</row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="1190" y="372" name="cliente_familiar">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="cliente_frecuente" row="DNI" />
+</row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="1189" y="448" name="cliente_mayorista">
+<row name="DNI" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="cliente_frecuente" row="DNI" />
+</row>
+<key type="PRIMARY" name="">
+<part>DNI</part>
+</key>
+</table>
+<table x="848" y="601" name="compra">
+<row name="DNI_cliente" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="cliente" row="DNI" />
+</row>
+<row name="codigo_articulo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="articulo" row="codigo" />
+</row>
+</table>
+<table x="610" y="538" name="articulo">
+<row name="codigo" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="marca" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="nombre" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="precio_unitario" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="numero_estante" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>codigo</part>
+</key>
+</table>
+<table x="410" y="323" name="almacen">
+<row name="numero" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="stock_productos" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="numero_local" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="local_venta_celulares" row="numero_local" />
+</row>
+<key type="PRIMARY" name="">
+<part>numero</part>
+</key>
+</table>
+<table x="444" y="452" name="estante">
+<row name="numero" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="numero_almacen" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="almacen" row="numero" />
+<relation table="articulo" row="codigo" />
+</row>
+<row name="capacidad" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>numero</part>
+</key>
+</table>
+<table x="401" y="1142.6666564941406" name="local_distribucion">
+<row name="numero" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="RUC_distribuidora" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="distribuidora" row="RUC" />
+</row>
+<row name="capacidad" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<key type="PRIMARY" name="">
+<part>numero</part>
+</key>
+</table>
+<table x="678" y="977.6666564941406" name="centro_reclamos">
+<row name="numero" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="local_distribucion" row="numero" />
+</row>
+<key type="PRIMARY" name="">
+<part>numero</part>
+</key>
+</table>
+<table x="687" y="1052.6666564941406" name="recepcion">
+<row name="numero" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="local_distribucion" row="numero" />
+</row>
+<key type="PRIMARY" name="">
+<part>numero</part>
+</key>
+</table>
+<table x="693" y="1152.6666564941406" name="paqueteria">
+<row name="numero" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="local_distribucion" row="numero" />
+</row>
+<key type="PRIMARY" name="">
+<part>numero</part>
+</key>
+</table>
+<table x="884" y="725" name="celulares">
+<row name="codigo" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="articulo" row="codigo" />
+</row>
+<key type="PRIMARY" name="">
+<part>codigo</part>
+</key>
+</table>
+<table x="875" y="823" name="laptops">
+<row name="codigo" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="articulo" row="codigo" />
+</row>
+<key type="PRIMARY" name="">
+<part>codigo</part>
+</key>
+</table>
+<table x="430" y="636" name="distribuye">
+<row name="fecha_distribucion" null="1" autoincrement="1">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="cantidad_distribuida" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+<row name="RUC_distribuidora" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default><relation table="distribuidora" row="RUC" />
+<relation table="articulo" row="codigo" />
+</row>
+<row name="codigo_articulo" null="1" autoincrement="0">
+<datatype>INTEGER</datatype>
+<default>NULL</default></row>
+</table>
+</sql>
